@@ -12,14 +12,14 @@ const PortfolioSingle = ({ data }) => {
   useEffect(() => {
     async function fetchProject() {
       const { data: project } = await supabase.from('portfolio').select().eq('id', currentId)
-
+      console.log(project[0]);
       if (project.length > 0) {
         setProject(project[0])
       }
     }
 
     fetchProject()
-  }, [])
+  }, [currentId])
 
   // const item = data[currentId];
 
